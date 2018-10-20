@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "124199990386",
+    "firebase_url": "https://homerepo-e0144.firebaseio.com",
+    "project_id": "homerepo-e0144",
+    "storage_bucket": "homerepo-e0144.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:124199990386:android:554c5ee76799f2b0",
+        "android_client_info": {
+          "package_name": "com.example.harshasrikara.testapp"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "124199990386-n783c99p9c9g21qrngcfl4l0j0fv96c4.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.harshasrikara.testapp",
+            "certificate_hash": "10ae9731751f7255145042efc0c0b08ea9a14891"
+          }
+        },
+        {
+          "client_id": "124199990386-fir04d1ekj4cdkep53p8fovn5165uh9u.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAA2CWVXBBNVKXijjSQyT0eXtasi9fCJiE"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "124199990386-fir04d1ekj4cdkep53p8fovn5165uh9u.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
