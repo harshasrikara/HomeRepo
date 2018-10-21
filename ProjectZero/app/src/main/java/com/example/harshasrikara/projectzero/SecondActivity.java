@@ -1,38 +1,19 @@
 package com.example.harshasrikara.projectzero;
 
-import android.app.DownloadManager;
 import android.content.Intent;
 import android.graphics.Bitmap;
-import android.nfc.Tag;
-import android.opengl.GLSurfaceView;
 import android.os.Bundle;
 import android.provider.MediaStore;
 import android.support.v7.app.AppCompatActivity;
-import android.util.Base64;
-import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
-import android.widget.TextView;
-
-import com.android.volley.Request;
-import com.android.volley.RequestQueue;
-import com.android.volley.Response;
-import com.android.volley.VolleyError;
-import com.android.volley.toolbox.JsonObjectRequest;
-import com.android.volley.toolbox.StringRequest;
-import com.android.volley.toolbox.Volley;
-
-import org.json.JSONObject;
-
-import java.io.ByteArrayOutputStream;
 
 public class SecondActivity extends AppCompatActivity {
 
 
     Button btnpic;
     ImageView imgTakenPic;
-    ByteArrayOutputStream stream;
     private static final int CAM_REQUEST=1313;
 
 
@@ -50,45 +31,12 @@ public class SecondActivity extends AppCompatActivity {
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
 
-        if(requestCode == CAM_REQUEST) {
+        if(requestCode == CAM_REQUEST){
             Bitmap bitmap = (Bitmap) data.getExtras().get("data");
             imgTakenPic.setImageBitmap(bitmap);
             Button btn = findViewById(R.id.send);
             btn.setVisibility(View.VISIBLE);
-            stream = new ByteArrayOutputStream();
-            bitmap.compress(Bitmap.CompressFormat.PNG, 100, stream);
-
-
         }
-    }
-    public void sendReq(View view)
-    {
-        byte[] byteImage_photo =  stream.toByteArray();
-        String encodedImage = Base64.encodeToString(byteImage_photo,Base64.DEFAULT);
-        String URL = "https://raw.githubusercontent.com/google/web-starter-kit/master/app/manifest.json";
-        RequestQueue queue = Volley.newRequestQueue(this);
-        StringRequest stringRequest = new StringRequest
-                (Request.Method.GET, URL, new Response.Listener<String>() {
-                    @Override
-                    public void onResponse(String response) {
-                    //    Log.d("app", response.toString());
-                        TextView t = findViewById(R.id.hi);
-                        Log.e("error","error");
-                        if(response==null)
-                        {
-                            t.setText("it returned null");
-                        }
-                        else {
-                            t.setText(response);
-                        }
-                    }},
-                        new Response.ErrorListener() {
-                            @Override
-                            public void onErrorResponse(VolleyError error) {
-                                Log.e("error",  "Error");
-                            }
-                });
-        queue.add(stringRequest);
     }
 
     class btnTakePhotoClicker implements  Button.OnClickListener{
@@ -99,5 +47,4 @@ public class SecondActivity extends AppCompatActivity {
             startActivityForResult(intent,CAM_REQUEST);
         }
     }
-
 }
