@@ -24,7 +24,6 @@
         android:id="@+id/imageView"
         android:layout_width="match_parent"
         android:layout_height="250dp"
-
         android:layout_gravity="center_horizontal"
         />
 
@@ -35,15 +34,10 @@
         android:background="@android:color/black"
         android:layout_gravity="center_horizontal"
         android:text="Send Request"
+        android:textSize="24dp"
         android:id="@+id/send"
+        android:drawableLeft="@drawable/send"
         android:visibility="invisible"/>
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="match_parent"
-        android:text="hello world"
-        android:layout_gravity="center_horizontal"
-        android:textColor="@android:color/holo_orange_dark"
-        android:background="@android:color/black"/>
 
 </LinearLayout>
