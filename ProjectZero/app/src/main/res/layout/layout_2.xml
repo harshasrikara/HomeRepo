@@ -13,7 +13,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textSize="24dp"
-        android:layout_marginTop="60dp"
+        android:layout_marginTop="30dp"
         android:textColor="@android:color/holo_orange_dark"
         android:background="@android:color/black"
         android:id="@+id/button"
@@ -24,25 +24,45 @@
         android:id="@+id/imageView"
         android:layout_width="match_parent"
         android:layout_height="250dp"
-
         android:layout_gravity="center_horizontal"
         />
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+
+
 
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textColor="@android:color/holo_orange_dark"
         android:background="@android:color/black"
-        android:layout_gravity="center_horizontal"
+        android:layout_gravity="center_vertical"
         android:text="Send Request"
         android:onClick="sendReq"
+        android:layout_marginLeft="50dp"
         android:id="@+id/send"
         android:visibility="invisible"/>
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@android:color/holo_orange_dark"
+            android:background="@android:color/black"
+            android:layout_gravity="center_vertical"
+            android:text="Add Extra Info"
+            android:layout_marginLeft="30dp"
+            android:onClick="move"
+            android:id="@+id/nextPage"
+            android:visibility="invisible"/>
+
+    </LinearLayout>
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="match_parent"
-        android:text="hello world"
+        android:text="result"
         android:id="@+id/hi"
         android:layout_gravity="center_horizontal"
         android:textColor="@android:color/holo_orange_dark"

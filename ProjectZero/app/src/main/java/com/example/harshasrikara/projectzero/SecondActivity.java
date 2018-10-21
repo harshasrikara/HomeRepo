@@ -12,6 +12,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.util.Base64;
 import android.util.Log;
 import android.view.View;
+import android.webkit.WebView;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -59,6 +60,8 @@ public class SecondActivity extends AppCompatActivity {
             imgTakenPic.setImageBitmap(bitmap);
             Button btn = findViewById(R.id.send);
             btn.setVisibility(View.VISIBLE);
+            Button btn2 = findViewById(R.id.nextPage);
+            btn2.setVisibility(View.VISIBLE);
             stream = new ByteArrayOutputStream();
             bitmap.compress(Bitmap.CompressFormat.PNG, 100, stream);
 
@@ -125,6 +128,16 @@ public class SecondActivity extends AppCompatActivity {
             Intent intent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
             startActivityForResult(intent,CAM_REQUEST);
         }
+    }
+
+    public void move(View view)
+    {
+        setContentView(R.layout.layout_3);
+    }
+    public void accessWeb(View view)
+    {
+        WebView webView = findViewById(R.id.webview);
+        webView.loadUrl("https://www.homedepot.com");
     }
 
 }
