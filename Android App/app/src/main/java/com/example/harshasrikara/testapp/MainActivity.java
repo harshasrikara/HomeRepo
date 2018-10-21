@@ -1,10 +1,15 @@
 package com.example.harshasrikara.testapp;
 
 import android.content.Intent;
+import android.hardware.Camera;
+import android.provider.MediaStore;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.widget.Button;
+import android.widget.FrameLayout;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.google.android.gms.auth.api.signin.GoogleSignIn;
@@ -18,6 +23,13 @@ import com.google.android.gms.common.api.GoogleApiClient;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.FirebaseAuth;
 
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.IOException;
+
+import static android.provider.MediaStore.Files.FileColumns.MEDIA_TYPE_IMAGE;
+
 public class MainActivity extends AppCompatActivity implements GoogleApiClient.OnConnectionFailedListener, View.OnClickListener{
 
     SignInButton signInButton;
@@ -27,7 +39,9 @@ public class MainActivity extends AppCompatActivity implements GoogleApiClient.O
     private static final String TAG = "SignInActivity";
     private static final int RC_SIGN_IN =9001;
     public final static String CURRENT_COUNT_KEY = "CurrentCount";
-    String send;
+
+    private Camera mCamera;
+    private CameraPreview mPreview;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -42,6 +56,8 @@ public class MainActivity extends AppCompatActivity implements GoogleApiClient.O
         signInButton.setOnClickListener(this);
 
 
+
+
     }
     @Override
     public void onClick(View v) {
@@ -51,12 +67,14 @@ public class MainActivity extends AppCompatActivity implements GoogleApiClient.O
                 break;
 
         }
+
     }
 
 
     private void signIn() {
         Intent signInIntent = mGoogleSignInClient.getSignInIntent();
         startActivityForResult(signInIntent, RC_SIGN_IN);
+
     }
 
     @Override
@@ -80,7 +98,10 @@ public class MainActivity extends AppCompatActivity implements GoogleApiClient.O
 
             // Signed in successfully, show authenticated UI.
             statusTextView.setText("congrats, you're logged in");
-     //       setContentView(R.layout.layout_2);
+    //        setContentView(R.layout.layout_3);
+            Intent intent = new Intent(this, SecondActivity.class);
+            startActivity(intent);
+
 
 
         } catch (ApiException e) {
@@ -102,4 +123,16 @@ public class MainActivity extends AppCompatActivity implements GoogleApiClient.O
         statusTextView.setText("Signed out");
         FirebaseAuth.getInstance().signOut();
     }
+
+
+
+
+//    public Camera getCam(View view)
+//    {
+//        Camera x = getCameraInstance();
+//        return x;
+//    }
+
+
+
 }
