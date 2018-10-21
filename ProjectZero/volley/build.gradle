@@ -60,5 +60,5 @@ apply from: 'bintray.gradle'
 
 dependencies {
     testCompile 'junit:junit:4.12'
-    compile 'com.android.support:appcompat-v7:28.+'
+    implementation 'com.android.support:appcompat-v7:28.+'
 }

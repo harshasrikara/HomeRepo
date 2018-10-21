@@ -36,14 +36,12 @@
         android:text="Send Request"
 <<<<<<< HEAD
         android:onClick="sendReq"
-=======
         android:textSize="24dp"
->>>>>>> 264e742c437b7c5d8189ef417154bf83634503a5
         android:id="@+id/send"
         android:drawableLeft="@drawable/send"
         android:visibility="invisible"/>
 
-<<<<<<< HEAD
+
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="match_parent"
@@ -52,7 +50,6 @@
         android:layout_gravity="center_horizontal"
         android:textColor="@android:color/holo_orange_dark"
         android:background="@android:color/black"/>
-=======
->>>>>>> 264e742c437b7c5d8189ef417154bf83634503a5
+
 
 </LinearLayout>
