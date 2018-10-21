@@ -16,15 +16,15 @@
 
 
             <Button
+                android:id="@+id/button_capture"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="TAKE PHOTO"
-                android:id="@+id/button_capture"/>
+                android:text="TAKE PHOTO" />
 
-                <ImageView
-                    android:layout_height="wrap_content"
-                    android:layout_width="wrap_content"
-                    android:id="@+id/imager"
+            <ImageView
+                android:id="@+id/imager"
+                android:layout_width="269dp"
+                android:layout_height="157dp"
 
                 />
 
@@ -32,20 +32,19 @@
                 android:id="@+id/camera_preview"
                 android:layout_width="fill_parent"
                 android:layout_height="fill_parent"
-                android:layout_weight="1"
-                />
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="hello world"
-            android:layout_gravity="center_horizontal"/>
+                android:layout_weight="1" />
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="hello 2 world"
-                android:layout_gravity="center_horizontal"/>
+                android:layout_gravity="center_horizontal"
+                android:text="hello world" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:text="hello 2 world" />
 
         </LinearLayout>
     </ScrollView>

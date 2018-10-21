@@ -11,7 +11,7 @@ import android.widget.ImageView;
 
 public class SecondActivity extends AppCompatActivity{
 
-  //  ImageView im = findViewById(R.id.imager);
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -22,16 +22,8 @@ public class SecondActivity extends AppCompatActivity{
 
     public void assist(View view)
     {
-        setContentView(R.layout.layout_2);
-        Button btn = findViewById(R.id.button_capture);
-
-     /*   btn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
-             //   startActivityForResult(intent,0);
-            }
-        });*/
+       Intent intent = new Intent(this, ThirdActivity.class);
+       startActivity(intent);
     }
 
 
@@ -41,11 +33,5 @@ public class SecondActivity extends AppCompatActivity{
     }
 
 
-/*    @Override
-    public void onActivityResult(int requestCode, int resultCode, Intent data)
-    {
-        super.onActivityResult(requestCode , resultCode, data );
-        Bitmap bitmap = (Bitmap) data.getExtras().get("data");
-        im.setImageBitmap(bitmap);
-    }*/
+
 }
