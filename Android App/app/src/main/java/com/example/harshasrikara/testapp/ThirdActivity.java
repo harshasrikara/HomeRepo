@@ -163,7 +163,7 @@ public void doNothingFunc()
         super.onCreate(savedInstanceState);
         setContentView(R.layout.layout_2);
         this.imageView = (ImageView)this.findViewById(R.id.imageView);
-        Button photoButton = (Button) this.findViewById(R.id.btn);
+        Button photoButton = (Button) this.findViewById(R.id.button);
         photoButton.setOnClickListener(new View.OnClickListener() {
 
             @Override
