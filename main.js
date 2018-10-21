@@ -29,3 +29,12 @@ const options = {
         'Ocp-Apim-Subscription-Key' : subscriptionKey
     }
 };
+
+request.post(options, (error, response, body) => {
+  if (error) {
+    console.log('Error: ', error);
+    return;
+  }
+  let jsonResponse = JSON.parse(body);
+  console.log(jsonResponse);
+});
