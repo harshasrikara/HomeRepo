@@ -3,6 +3,7 @@ package com.example.harshasrikara.projectzero;
 import android.app.DownloadManager;
 import android.content.Intent;
 import android.graphics.Bitmap;
+import android.net.Uri;
 import android.nfc.Tag;
 import android.opengl.GLSurfaceView;
 import android.os.Bundle;
@@ -15,6 +16,7 @@ import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.android.volley.AuthFailureError;
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;
 import com.android.volley.Response;
@@ -26,6 +28,8 @@ import com.android.volley.toolbox.Volley;
 import org.json.JSONObject;
 
 import java.io.ByteArrayOutputStream;
+import java.util.HashMap;
+import java.util.Map;
 
 public class SecondActivity extends AppCompatActivity {
 
@@ -64,13 +68,18 @@ public class SecondActivity extends AppCompatActivity {
     public void sendReq(View view)
     {
         byte[] byteImage_photo =  stream.toByteArray();
-        String encodedImage = Base64.encodeToString(byteImage_photo,Base64.DEFAULT);
-        String URL = "https://raw.githubusercontent.com/google/web-starter-kit/master/app/manifest.json";
+        final String encodedImage = Base64.encodeToString(byteImage_photo,Base64.DEFAULT);
+        String URL = "https://k38qggm8ak.execute-api.us-east-1.amazonaws.com/default/ImageAPI";
+         /*       "https://raw.githubusercontent.com/google/web-starter-kit/master/app/manifest" ;
+
+                .json";
+*/
         RequestQueue queue = Volley.newRequestQueue(this);
         StringRequest stringRequest = new StringRequest
-                (Request.Method.GET, URL, new Response.Listener<String>() {
+                (Request.Method.POST, URL, new Response.Listener<String>() {
                     @Override
                     public void onResponse(String response) {
+
                     //    Log.d("app", response.toString());
                         TextView t = findViewById(R.id.hi);
                         Log.e("error","error");
@@ -87,7 +96,25 @@ public class SecondActivity extends AppCompatActivity {
                             public void onErrorResponse(VolleyError error) {
                                 Log.e("error",  "Error");
                             }
-                });
+                }) {
+            @Override
+            protected Map<String, String> getParams() {
+                Map<String, String> params = new HashMap<String, String>();
+
+                params.put("comment", encodedImage);
+                Log.e("Image", "Encoded Image: " + encodedImage);
+
+                return params;
+            }
+
+            @Override
+            public Map<String, String> getHeaders() throws AuthFailureError {
+                Map<String, String> params = new HashMap<String, String>();
+                params.put("Content-Type", "application/json");
+                return params;
+            }
+        };
+
         queue.add(stringRequest);
     }
 
